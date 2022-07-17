@@ -1,22 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>输出的htmlStr</title>
-</head>
-<body style="padding: 10px">
-  <h3>预览：</h3>
-  <div style="border: 1px solid #eee; padding: 10px">
-    <p></p>
-  </div>
-  <h3 style="margin-top: 10px;">源码：</h3>
-  <div style="background: #eee; padding: 10px">
-    <xmp><p></p></xmp>
-  </div>
-  <script>
-  </script>
-</body>
+  </head>
+  <body style="padding: 10px">
+    <h3>预览：</h3>
+    <div style="border: 1px solid #eee; padding: 10px" id="preview"></div>
+    <h3 style="margin-top: 10px">源码：</h3>
+    <div style="background: #eee; padding: 10px">
+      <xmp id="source" style="white-space: normal"></xmp>
+    </div>
+    <script>
+      const Store = window.require("electron-store");
+      const store = new Store();
+      const previewDom = document.getElementById("preview");
+      const sourceDom = document.getElementById("source");
+
+      previewDom.innerHTML = store.get("htmlStr");
+      sourceDom.innerHTML = store.get("htmlStr");
+    </script>
+  </body>
 </html>

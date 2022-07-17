@@ -47,7 +47,6 @@ const App = () => {
   }, [value]);
 
   const ipcRendererCB = (e, m) => {
-    console.log("111111", "getCurHtmlStr");
     ipcRenderer.send("setCurHtmlStr", value);
   };
 
